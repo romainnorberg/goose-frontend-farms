@@ -29,28 +29,28 @@ const CakeStats = () => {
   const farms = useFarms();
   const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) - getBalanceNumber(burnedBalance) : 0
 
-  let eggPerBlock = 0;
-  if(farms && farms[0] && farms[0].eggPerBlock){
-    eggPerBlock = new BigNumber(farms[0].eggPerBlock).div(new BigNumber(10).pow(18)).toNumber();
+  let pommePerBlock = 0;
+  if(farms && farms[0] && farms[0].pommePerBlock){
+    pommePerBlock = new BigNumber(farms[0].pommePerBlock).div(new BigNumber(10).pow(18)).toNumber();
   }
 
   return (
     <StyledCakeStats>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(534, 'Egg Stats')}
+          {TranslateString(534, 'Pomme Stats')}
         </Heading>
         <Row>
-          <Text fontSize="14px">{TranslateString(536, 'Total EGG Supply')}</Text>
+          <Text fontSize="14px">{TranslateString(536, 'Total Pomme Supply')}</Text>
           {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(538, 'Total EGG Burned')}</Text>
+          <Text fontSize="14px">{TranslateString(538, 'Total Pomme Burned')}</Text>
           <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(540, 'New EGG/block')}</Text>
-          <Text bold fontSize="14px">{eggPerBlock}</Text>
+          <Text fontSize="14px">{TranslateString(540, 'New Pomme/block')}</Text>
+          <Text bold fontSize="14px">{pommePerBlock}</Text>
         </Row>
       </CardBody>
     </StyledCakeStats>
